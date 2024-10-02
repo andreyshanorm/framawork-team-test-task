@@ -1,0 +1,28 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 5px;
+
+  @media (min-width: 320px) and (max-width: 1023px) {
+    padding: 24px 20px;
+  }
+}
+
+.theme_button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &[data-background="light"] {
+    background-color: #fcfcfc;
+  }
+
+  &[data-background="dark"] {
+    background-color: #1a1818;
+  }
+}
