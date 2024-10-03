@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+  gap: 4px;
+}
+
+.page_item {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}

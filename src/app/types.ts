@@ -6,3 +6,8 @@ export type PaintsResponse = {
   locationId: number;
   name: string;
 };
+
+export type AuthorsRespone = {
+  id: number;
+  name: string;
+};

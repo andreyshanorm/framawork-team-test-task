@@ -5,10 +5,10 @@ export const paintingsApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getPaints: builder.query<PaintsResponse[], void>({
       query: () => ({
-        url: "/paintings?_limit=6",
+        url: "/paintings",
       }),
     }),
-    changePage: builder.query<PaintsResponse[], void>({
+    changePage: builder.query<PaintsResponse[], number>({
       query: (pageNumber) => ({
         url: `/paintings?_limit=6&_page=${pageNumber}`,
       }),

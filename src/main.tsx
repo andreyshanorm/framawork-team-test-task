@@ -1,10 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import App from "./App";
 import { store } from "./app/store";
 
-import "./index.css";
+import "./index.scss";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
 import { Layout } from "./components/Layout/Layout";

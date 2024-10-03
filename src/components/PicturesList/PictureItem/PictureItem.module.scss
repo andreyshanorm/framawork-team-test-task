@@ -1,0 +1,84 @@
+.card_item {
+  position: relative;
+  width: 392px;
+  height: 260px;
+  font-family: "Cormorant SC", serif;
+  overflow: hidden;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 76%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 42px;
+      border: 2px solid #ab8956;
+    }
+
+    &[data-background="light"] {
+      background-color: #fff;
+      color: #121212;
+    }
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+
+  .author_name,
+  .text {
+    position: absolute;
+    transform: translateX(-150%);
+    transition: transform 0.3s ease;
+
+    &.text {
+      top: 35px;
+    }
+  }
+
+  .year,
+  .text {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: #b08d57;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    .title,
+    .year {
+      transform: translateY(100px);
+    }
+
+    .image {
+      transform: scale(1.1);
+    }
+
+    .author_name,
+    .text {
+      transform: translateX(0);
+    }
+  }
+}

@@ -16,7 +16,7 @@ export const Header = () => {
           <SvgIcon src={theme === "light" ? LightLogo : Logo} alt="Логотип" />
         </div>
         <div
-          data-background={theme === "light" ? "light" : "dark"}
+          data-background={theme}
           className={styles.theme_button}
           onClick={() => toggleTheme()}
         >

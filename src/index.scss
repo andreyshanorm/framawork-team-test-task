@@ -16,11 +16,13 @@ body {
   min-height: 100vh;
 }
 
-.main-page.dark {
-  color: #dedede;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: none;
 }
