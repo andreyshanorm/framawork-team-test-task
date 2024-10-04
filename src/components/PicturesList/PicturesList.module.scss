@@ -32,3 +32,22 @@
     padding-left: 26px;
   }
 }
+
+.search_error{
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  margin-top: 60px;
+  font-size: 14px;
+  color: #9C9C9C;
+
+  .error_content{
+    color: #DEDEDE;
+    font-size: 16px;
+
+
+    span{
+      font-weight: 700;
+      padding-left: 2px;
+    }
+  }
+}

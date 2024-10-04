@@ -46,7 +46,6 @@ export const PictureItem: FC<Props> = ({
           src={loading ? Load : `${baseUrl}${imgSrc}`}
           alt={title}
           className={styles.image}
-
         />
       ) : (
         <div>При загрузке фотографии произошла ошибка</div>

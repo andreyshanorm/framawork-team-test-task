@@ -6,4 +6,6 @@ type PropTypes = {
   alt: string;
 };
 
-export const SvgIcon: FC<PropTypes> = ({ src, alt }) => <img src={src} alt={alt} />;
+export const SvgIcon: FC<PropTypes> = ({ src, alt }) => (
+  <img src={src} alt={alt} />
+);
