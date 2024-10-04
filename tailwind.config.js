@@ -1,34 +1,35 @@
 /** @type {import('tailwindcss').Config} */
 
-const { nextui } = require("@nextui-org/react");
+import { nextui } from '@nextui-org/react';
+
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
         textPrimary: {
-          DEFAULT: "#121212",
-          dark: "#66AAF9",
+          DEFAULT: '#121212',
+          dark: '#66AAF9',
         },
       },
     },
   },
-  darkMode: "class",
+  darkMode: 'class',
   plugins: [
     nextui({
       themes: {
         light: {
           colors: {
-            background: "#fff",
+            background: '#fff',
           }, // light theme colors
         },
         dark: {
           colors: {
-            background: "#121212",
+            background: '#121212',
           }, // light theme colors
         },
       },

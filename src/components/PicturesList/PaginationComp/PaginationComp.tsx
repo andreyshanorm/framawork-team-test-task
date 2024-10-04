@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
-import styles from "./PaginationComp.module.scss";
-import { ThemeContext } from "../../ThemeProvider/ThemeProvider";
+import type React from 'react';
+import { useContext } from 'react';
+import styles from './PaginationComp.module.scss';
+import { ThemeContext } from '../../ThemeProvider/ThemeProvider';
 
 interface PaginationProps {
   totalItems: number;
   itemsPerPage: number;
-  maxPageNumbers?: number;
+  maxPageNumbers: number;
   onPageChange: (page: number) => void;
   currentPage: number;
 }
@@ -13,7 +14,7 @@ interface PaginationProps {
 export const PaginationComp: React.FC<PaginationProps> = ({
   totalItems,
   itemsPerPage,
-  maxPageNumbers = 5,
+  maxPageNumbers,
   onPageChange,
   currentPage,
 }) => {
@@ -26,24 +27,24 @@ export const PaginationComp: React.FC<PaginationProps> = ({
     const half = Math.floor(maxPageNumbers / 2);
 
     if (totalPages <= maxPageNumbers) {
-      for (let i = 1; i <= totalPages; i++) {
+      for (let i = 1; i <= totalPages; i += 1) {
         pageNumbers.push(i);
       }
     } else {
-      let start = Math.max(1, currentPage - half);
-      let end = Math.min(totalPages, currentPage + half);
+      const start = Math.max(1, currentPage - half);
+      const end = Math.min(totalPages, currentPage + half);
 
       if (start > 1) {
         pageNumbers.push(1);
-        if (start > 2) pageNumbers.push("...");
+        if (start > 2) pageNumbers.push('...');
       }
 
-      for (let i = start; i <= end; i++) {
+      for (let i = start; i <= end; i += 1) {
         pageNumbers.push(i);
       }
 
       if (end < totalPages) {
-        if (end < totalPages - 1) pageNumbers.push("...");
+        if (end < totalPages - 1) pageNumbers.push('...');
         pageNumbers.push(totalPages);
       }
     }
@@ -54,23 +55,26 @@ export const PaginationComp: React.FC<PaginationProps> = ({
   return (
     <ul
       className={styles.pagination}
-      style={{ color: theme === "dark" ? "#DEDEDE" : "inherit" }}
+      style={{ color: theme === 'dark' ? '#DEDEDE' : 'inherit' }}
     >
-      {getPageNumbers().map((number, index) =>
-        typeof number === "number" ? (
-          <li
-            key={index}
-            className={`${styles.page_item} ${number === currentPage ? "active" : ""}`}
-            onClick={() => onPageChange(number)}
-          >
-            {number}
-          </li>
-        ) : (
-          <li key={index} className={styles.page_item}>
-            {number}
-          </li>
-        ),
-      )}
+      {getPageNumbers().map((number) => (typeof number === 'number' ? (
+        <button
+          type="button"
+          tabIndex={number}
+          key={number}
+          className={`${styles.page_item} ${number === currentPage ? 'active' : ''}`}
+          onClick={() => onPageChange(number)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') onPageChange(number);
+          }}
+        >
+          {number}
+        </button>
+      ) : (
+        <button type="button" key={number} className={styles.page_item}>
+          {number}
+        </button>
+      )))}
     </ul>
   );
 };

@@ -1,14 +1,15 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import { store } from "./app/store";
+import React from 'react';
+import { NextUIProvider } from '@nextui-org/react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
-import "./index.scss";
-import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
-import { Layout } from "./components/Layout/Layout";
+import './index.scss';
 
-const container = document.getElementById("root");
+import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
+import { Layout } from './components/Layout/Layout';
+
+const container = document.getElementById('root');
 
 if (container) {
   const root = createRoot(container);

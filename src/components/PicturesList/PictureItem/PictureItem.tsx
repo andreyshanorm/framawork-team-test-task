@@ -1,13 +1,13 @@
-import React, { FC, useContext, useEffect, useState } from "react";
-import styles from "./PictureItem.module.scss";
-import axios from "axios";
-import { baseUrl } from "../../../constants";
-import Load from "../../../images/load.png";
-import { ThemeContext } from "../../ThemeProvider/ThemeProvider";
+import type { FC } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import styles from './PictureItem.module.scss';
+import { baseUrl } from '../../../constants';
+import Load from '../../../images/load.png';
+import { ThemeContext } from '../../ThemeProvider/ThemeProvider';
 
 type Props = {
   imgSrc: string;
-  imgAlt: string;
   title: string;
   year: string;
   aurhorName: string;
@@ -16,7 +16,6 @@ type Props = {
 
 export const PictureItem: FC<Props> = ({
   imgSrc,
-  imgAlt,
   title,
   year,
   aurhorName,
@@ -47,6 +46,7 @@ export const PictureItem: FC<Props> = ({
           src={loading ? Load : `${baseUrl}${imgSrc}`}
           alt={title}
           className={styles.image}
+
         />
       ) : (
         <div>При загрузке фотографии произошла ошибка</div>

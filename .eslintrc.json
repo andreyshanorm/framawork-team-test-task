@@ -1,7 +1,6 @@
 {
   "extends": [
     "eslint:recommended",
-    "react-app",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
     "prettier",
@@ -9,11 +8,15 @@
     "airbnb-typescript"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": { "project": true, "tsconfigRootDir": "./" },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+  "project": "./tsconfig.json",
+  "tsconfigRootDir": "./"
+},
+  "plugins": ["prettier"],
   "root": true,
   "ignorePatterns": ["dist"],
   "rules": {
+    "quotes": "off",
     "@typescript-eslint/consistent-type-imports": [
       2,
       { "fixStyle": "separate-type-imports" }
@@ -29,7 +32,9 @@
           }
         ]
       }
-    ]
+    ],
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": "off"
   },
   "overrides": [
     { "files": ["*.{c,m,}{t,j}s", "*.{t,j}sx"] },

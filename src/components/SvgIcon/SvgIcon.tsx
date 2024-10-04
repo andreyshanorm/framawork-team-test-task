@@ -1,11 +1,9 @@
-import React, { FC } from "react";
+import type { FC } from 'react';
+import React from 'react';
 
 type PropTypes = {
   src: string;
   alt: string;
-  size?: string;
 };
 
-export const SvgIcon: FC<PropTypes> = ({ src, alt, size }) => {
-  return <img src={src} alt={alt} />;
-};
+export const SvgIcon: FC<PropTypes> = ({ src, alt }) => <img src={src} alt={alt} />;

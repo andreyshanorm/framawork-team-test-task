@@ -1,11 +1,11 @@
-import { PaintsResponse } from "../types";
-import { api } from "./api";
+import type { PaintsResponse } from '../types';
+import { api } from './api';
 
 export const paintingsApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getPaints: builder.query<PaintsResponse[], void>({
       query: () => ({
-        url: "/paintings",
+        url: '/paintings',
       }),
     }),
     changePage: builder.query<PaintsResponse[], number>({
@@ -16,8 +16,7 @@ export const paintingsApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetPaintsQuery, useChangePageQuery, useLazyChangePageQuery } =
-  paintingsApi;
+export const { useGetPaintsQuery, useChangePageQuery, useLazyChangePageQuery } = paintingsApi;
 
 export const {
   endpoints: { getPaints, changePage },
