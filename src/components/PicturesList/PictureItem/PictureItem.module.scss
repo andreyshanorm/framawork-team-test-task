@@ -81,4 +81,19 @@
       transform: translateX(0);
     }
   }
+
+  @media (max-width: 830px) {
+    width: 352px;
+    height: 220px;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    height: 185px;
+    font-size: 12px;
+
+    .title {
+      font-size: 12px;
+    }
+  }
 }

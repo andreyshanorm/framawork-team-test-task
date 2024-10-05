@@ -62,7 +62,7 @@ export const PaginationComp: React.FC<PaginationProps> = ({
           type="button"
           tabIndex={number}
           key={number}
-          className={`${styles.page_item} ${number === currentPage ? 'active' : ''}`}
+          className={`${styles.page_item} ${number === currentPage ? styles.active : ''} ${theme === 'light' ? styles.light : styles.dark}`}
           onClick={() => onPageChange(number)}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') onPageChange(number);

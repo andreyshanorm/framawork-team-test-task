@@ -9,6 +9,17 @@
     top: 10px;
     left: 18px;
   }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    & {
+      width: 280px;
+      align-self: center;
+    }
+
+    .search_input {
+      width: 280px;
+    }
+  }
 }
 
 .search_input {
@@ -26,5 +37,13 @@
     color: #9c9c9c;
     background-color: #ffffff;
     border: 1px solid #dedede;
+  }
+
+  &:focus {
+    border: 2px solid #dedede;
+  }
+
+  &:focus.light {
+    border: 2px solid #575757;
   }
 }

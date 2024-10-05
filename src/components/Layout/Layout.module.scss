@@ -4,15 +4,18 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1365px) {
-}
-
-@media (width: 768px) {
   .container {
-    max-width: 728px;
+    max-width: 1160px;
   }
 }
 
-@media (width: 320px) {
+@media (max-width: 768px) {
+  .container {
+    max-width: 748px;
+  }
+}
+
+@media (max-width: 320px) {
   .container {
     max-width: 280px;
   }

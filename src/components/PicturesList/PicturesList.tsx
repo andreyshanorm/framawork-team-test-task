@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useContext, useEffect, useRef, useState,
+} from 'react';
 import axios from 'axios';
 import { useGetAuthorsQuery } from '../../app/services/authorsApi';
 import { useGetPaintsQuery } from '../../app/services/paintingsApi';
@@ -7,9 +9,10 @@ import { baseUrl } from '../../constants';
 import { PictureItem } from './PictureItem/PictureItem';
 import styles from './PicturesList.module.scss';
 import { linkAuthorsWithPaints } from '../../utils/linkPaintsAndAuthors';
-import Circ from '../../images/icons/Circ.svg';
 import { PaginationComp } from './PaginationComp/PaginationComp';
 import { CustomInput } from './CustomInput/CustomInput';
+import { CircIcon } from '../Icons/CircIcon';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 type Paint = PaintsResponse;
 
@@ -23,6 +26,8 @@ export function PicturesList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<boolean | null>(null);
   const [isSearchError, setIsSearchError] = useState(false);
+
+  const { theme } = useContext(ThemeContext);
 
   const searchInput = useRef<HTMLInputElement | null>(null);
 
@@ -81,45 +86,42 @@ export function PicturesList() {
         setPictures={changeState}
         authorsData={authorsData}
       />
-      {
-        pictureState.length !== 0 ? (
-          <ul className={styles.card_list}>
-            {pictureState.slice(0, 6).map((item: PaintWithName) => (
-              <PictureItem
-                text="Lorem Ipsum"
-                aurhorName={item.authorName}
-                key={item.id}
-                year={item.created}
-                title={item.name}
-                imgSrc={item.imageUrl}
-              />
-            ))}
-          </ul>
-        )
-          : (
-            <div className={styles.search_error}>
-              <p className={styles.error_content}>
-                No matches for
-                <span>{searchInput.current?.value}</span>
-              </p>
-              <p className={styles.error_advise}>
-                Please try again with a different spelling or keywords.
-              </p>
-            </div>
-          )
-      }
-      {pictureState.length >= 6 && (
+      {pictureState.length !== 0 ? (
+        <ul className={styles.card_list}>
+          {pictureState.slice(0, 6).map((item: PaintWithName) => (
+            <PictureItem
+              text="Lorem Ipsum"
+              aurhorName={item.authorName}
+              key={item.id}
+              year={item.created}
+              title={item.name}
+              imgSrc={item.imageUrl}
+            />
+          ))}
+        </ul>
+      ) : (
+        <div className={styles.search_error}>
+          <p className={styles.error_content}>
+            No matches for
+            <span>{searchInput.current?.value}</span>
+          </p>
+          <p className={styles.error_advise}>
+            Please try again with a different spelling or keywords.
+          </p>
+        </div>
+      )}
+      {pictureState.length >= 3 && (
         <div className={styles.pagination_block}>
           {/* data?.length ? Math.round(data.length / 6) : 0 */}
           <button
             onClick={() => setCurrentPage((prev) => (prev === 1 ? prev : prev - 1))}
             type="button"
-            className={styles.previos_button}
+            className={`${styles.previos_button} ${styles.page_button} ${theme === 'light' ? styles.light : styles.dark}`}
           >
-            <img src={Circ} alt="Вперед" />
+            <CircIcon fillColor={theme === 'dark' ? '#DEDEDE' : '#575757'} />
           </button>
           <PaginationComp
-            maxPageNumbers={3}
+            maxPageNumbers={4}
             onPageChange={setCurrentPage}
             currentPage={currentPage}
             totalItems={data?.length ? Math.round(data.length / 6) : 0}
@@ -128,9 +130,9 @@ export function PicturesList() {
           <button
             onClick={() => setCurrentPage((prev) => (prev === 9 ? prev : prev + 1))}
             type="button"
-            className={styles.next_button}
+            className={`${styles.next_button} ${styles.page_button} ${theme === 'light' ? styles.light : styles.dark}`}
           >
-            <img src={Circ} alt="Назад" />
+            <CircIcon fillColor={theme === 'dark' ? '#DEDEDE' : '#575757'} />
           </button>
         </div>
       )}

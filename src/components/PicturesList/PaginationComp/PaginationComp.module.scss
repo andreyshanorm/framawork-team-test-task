@@ -7,5 +7,29 @@
   width: 24px;
   height: 24px;
   border-radius: 4px;
-  cursor: pointer;
+  position: relative;
+
+  &.active {
+    background: #1a1818;
+    font-weight: 700;
+  }
+
+  &.light.active {
+    background: #1212120d;
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: gray;
+  }
+
+  &:hover::before {
+    display: block;
+  }
 }

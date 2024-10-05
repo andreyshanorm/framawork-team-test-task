@@ -4,8 +4,12 @@
   justify-content: space-between;
   padding: 30px 5px;
 
-  @media (min-width: 320px) and (max-width: 1023px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     padding: 24px 20px;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    padding: 24px 8px;
   }
 }
 
