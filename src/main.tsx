@@ -1,6 +1,8 @@
 import React from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { createRoot } from 'react-dom/client';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
@@ -19,7 +21,11 @@ if (container) {
       <Provider store={store}>
         <NextUIProvider>
           <ThemeProvider>
-            <Layout />
+            <Router>
+              <Routes>
+                <Route path="/framawork-team-test-task" element={<Layout />} />
+              </Routes>
+            </Router>
           </ThemeProvider>
         </NextUIProvider>
       </Provider>
