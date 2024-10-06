@@ -10,12 +10,12 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
-    "tsconfigRootDir": "./"
   },
   "plugins": ["prettier"],
   "root": true,
   "ignorePatterns": ["dist"],
   "rules": {
+    "linebreak-style": ["error", "windows"],
     "quotes": "off",
     "@typescript-eslint/consistent-type-imports": [
       2,
